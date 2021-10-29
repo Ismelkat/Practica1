@@ -3,8 +3,8 @@ pipeline {
   agent any
   parameters {
       //string(name: 'VERSION', defaultValue: '', description: 'version to deploy')
-      choice(name: 'VERSION',choice:['1.4.8,2.07,3.0.0'], description: 'version to deploy')
-      booleanParam(name: 'exectutiontest', defaultValue: '', description: '')
+      choice(name: 'VERSION', choice: ['1.4.8','2.0.7','3.0.0'], description: '')
+      booleanParam(name: 'exectutiontest', defaultValue: true, description: '')
   }
   stages {
     stage('Initialize ') {
@@ -25,6 +25,7 @@ pipeline {
  stage('Deploy ') {
       steps {
         echo 'hola Ismelka > '
+        echo "Select the version ${VERSION}"
       }
     }
 
